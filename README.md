@@ -26,9 +26,11 @@ All commands are run from the root of the astro-blog folder, from a terminal:
 
 For further information regarding integration with Sanity please read the documentation [here](https://www.sanity.io/guides/sanity-astro-blog).
 
-Once you have created a project on the sanity.io website, you will need to copy the .env.template file to .env and populate with the values for your project. These environment variables can then be provided via [Netlify](https://www.netlify.com/) or any other hosting provider you choose but I would highly recommend this platform.
-
 Additional links:
 
 - [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
 - [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+
+## Environment Variables
+
+Once you have created a project on the sanity.io website, you will need to copy the .env.template files to .env versions, in both project directories, and populate with the values for your project. These environment variables can then be provided via [Netlify](https://www.netlify.com/) or any other hosting provider you choose but I would highly recommend this platform.
