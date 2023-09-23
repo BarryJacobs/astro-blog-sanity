@@ -19,7 +19,6 @@
 /coverage
 
 # Misc
-.DS_Store
 *.pem
 
 # Typescript
@@ -30,3 +29,6 @@
 
 # Env vars
 .env
+
+# macOS-specific files
+.DS_Store
