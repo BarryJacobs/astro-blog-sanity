@@ -22,7 +22,11 @@ All commands are run from the root of the astro-blog folder, from a terminal:
 | `bun --bun astro preview` | Preview your build locally, before deploying  |
 | `bunx astro add react`    | Use Astro integrations with astro add command |
 
-## Sanity Content Studio
+## Sanity Studio
+
+Sanity provides a customisable React based project called [Sanity Studio](https://www.sanity.io/studio) for managing your CMS content on a per project basis. The application supports both a content management system and a query tool for testing relational queries.
+
+Sanity uses GROQ (Graph-Relational Object Queries) for accessing data. The documentation for GROQ can be found [here](https://www.sanity.io/docs/how-queries-work).
 
 For further information regarding integration with Sanity please read the documentation [here](https://www.sanity.io/guides/sanity-astro-blog).
 
