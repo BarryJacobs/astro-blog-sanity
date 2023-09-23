@@ -1,9 +1,8 @@
 import { getRssPosts } from "../scripts/sanity";
 import rss from "@astrojs/rss";
 
-const posts = await getRssPosts();
-
-export const GET = () => {
+export const GET = async () => {
+  const posts = await getRssPosts();
   return rss({
     stylesheet: "/rss/styles.xsl",
     title: import.meta.env.VITE_WEBSITE_TITLE,
