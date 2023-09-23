@@ -1,0 +1,29 @@
+---
+import { getPaginatedPosts } from "../../scripts/sanity";
+import { isIntegerString } from "../../scripts/utils"
+import PostCard from "../../components/PostCard.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Pagination from "../../components/Pagination.astro";
+
+const { page } = Astro.params;
+
+const pageNumber = isIntegerString(page)
+if (pageNumber === undefined) return Astro.redirect("/404")
+
+const pageSize = 3
+const paginatedPosts = await getPaginatedPosts(pageSize, pageNumber);
+if (paginatedPosts.posts.length === 0) return Astro.redirect("/404");
+
+const previousPageLink = pageNumber > 0 ? `/blog/${pageNumber - 1}/` : "";
+const nextPageLink = paginatedPosts.total > (pageNumber + 1) * pageSize ? `/blog/${pageNumber + 1}/` : "";
+---
+
+<MainLayout title="Blog">
+  <section class="container" aria-label="New Blog Posts">
+    <h1 class="h1">Blog Posts</h1>
+    <div class="post-container">
+       {paginatedPosts.posts.map(post => <PostCard {post} heading="h2" />)}
+    </div>
+    <Pagination prevUrl={previousPageLink} nextUrl={nextPageLink} />
+  </section>
+</MainLayout>

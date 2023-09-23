@@ -1,0 +1,9 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "types": ["bun-types"],
+    "strictNullChecks": true,
+    "allowJs": true
+  },
+  "baseUrl": "."
+}

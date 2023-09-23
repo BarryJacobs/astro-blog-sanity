@@ -1,0 +1,50 @@
+---
+import type { Post } from "../interfaces";
+import { formatDate } from "../scripts/utils";
+import { urlForImage } from "../scripts/sanity";
+import CategoryCloud from "../components/CategoryCloud.astro";
+import Link from "./Link.astro";
+
+interface PostCardProps {
+  post: Post;
+  heading: "h2" | "h3";
+}
+
+const { post, heading } = Astro.props as PostCardProps;
+
+const Heading = heading;
+const url = `/post/${post.slug.current}/`;
+---
+
+<article class="card">
+  <small>
+    <CategoryCloud categories={post.categories} />
+  </small>
+  <a href={url} aria-hidden="true" tabindex="-1">
+    <img
+      alt="Post image"
+      src={urlForImage(post.mainImage)
+        .width(400)
+        .height(250)
+        .crop("center")
+        .fit("crop")
+        .format("webp")
+        .quality(40)
+        .url()}
+    />
+  </a>
+  <div class="content">
+    <div>
+      <Heading class="h3">
+        <a href={url}>{post.title}</a>
+      </Heading>
+      <small>
+        by <a href={`/author/${post.author.slug.current}/`}
+          >{post.author.name}</a
+        > • {formatDate(post.publishedAt)}
+      </small>
+    </div>
+    <p>{post.description}</p>
+    <Link href={url} text="Read Post" style="secondary" />
+  </div>
+</article>

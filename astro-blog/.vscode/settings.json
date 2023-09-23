@@ -1,0 +1,6 @@
+{
+  "workbench.settings.openDefaultSettings": false,
+  "files.associations": {
+    "*.mdx": "markdown"
+  }
+}

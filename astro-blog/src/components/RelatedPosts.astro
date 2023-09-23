@@ -1,0 +1,31 @@
+---
+import type { Post } from "../interfaces";
+import { formatDate } from "../scripts/utils";
+
+interface RelatedPostsProps {
+  posts?: Post[];
+}
+
+const { posts } = Astro.props as RelatedPostsProps;
+---
+
+{
+  posts && posts.length > 0 && (
+    <aside class="container" aria-label="Related posts">
+      <h2 class="h3">Related Posts</h2>
+      {posts.map((post) => (
+        <div class="post">
+          <h3 class="h4">
+            <a href={`/post/${post.slug.current}/`}>{post.title}</a>
+          </h3>
+          <small>
+            <a href={`/author/${post.author.slug.current}/`}>
+              {post.author.name}
+            </a>{" "}
+            • {formatDate(post.publishedAt)}
+          </small>
+        </div>
+      ))}
+    </aside>
+  )
+}

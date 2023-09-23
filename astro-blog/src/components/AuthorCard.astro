@@ -1,0 +1,49 @@
+---
+import { PortableText } from "astro-portabletext";
+import { urlForImage } from "../scripts/sanity";
+import type { Author } from "../interfaces";
+import Link from "./Link.astro";
+
+interface AuthorCardProps {
+  author: Author;
+}
+
+const { author } = Astro.props as AuthorCardProps;
+const { name, image, bio, email } = author;
+---
+
+<article class="card">
+  <div class="content">
+    <h3 class="h4">{name.toUpperCase()}</h3>
+    <img
+      alt="Author image"
+      src={urlForImage(image)
+        .width(200)
+        .height(200)
+        .crop("center")
+        .fit("crop")
+        .format("webp")
+        .quality(40)
+        .url()}
+    />
+    <PortableText value={bio} />
+    <div class="actions">
+      <Link
+        href={`/author/${author.slug.current}`}
+        style="secondary"
+        text="View Posts"
+      />
+      <Link href={`mailto:${email}`} style="primary" text="Contact" />
+    </div>
+  </div>
+</article>
+
+<style>
+  h3 {
+    text-wrap: nowrap;
+  }
+  .actions {
+    display: flex;
+    gap: 0.5em;
+  }
+</style>

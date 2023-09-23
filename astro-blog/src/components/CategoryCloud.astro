@@ -1,0 +1,21 @@
+---
+import type { Category } from "../interfaces";
+
+interface CategoryCloudProps {
+  categories: Category[]
+}
+
+const { categories } = Astro.props as CategoryCloudProps
+---
+
+<ul class="categories">
+  {
+    categories.map((category) => (
+      <li>
+        <a class="badge" href={`/category/${category.slug.current}/`}>
+          {category.name}
+        </a>
+      </li>
+    ))
+  }
+</ul>

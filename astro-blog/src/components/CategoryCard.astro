@@ -1,0 +1,40 @@
+---
+import { urlForImage } from "../scripts/sanity";
+import type { Category } from "../interfaces";
+
+interface CategoryCardProps {
+  category: Category;
+}
+
+const { category } = Astro.props as CategoryCardProps;
+const { name, image, slug } = category;
+---
+
+<a href={`/category/${slug.current}/`} aria-hidden="true" tabindex="-1">
+  <article class="card">
+    <div class="content">
+      <h3 class="h4">{name.toUpperCase()}</h3>
+      <img
+        alt="Category image"
+        src={urlForImage(image)
+          .width(200)
+          .height(200)
+          .crop("center")
+          .fit("crop")
+          .format("webp")
+          .quality(40)
+          .url()}
+      />
+    </div>
+  </article>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  h3 {
+    text-wrap: nowrap;
+    text-align: center;
+  }
+</style>

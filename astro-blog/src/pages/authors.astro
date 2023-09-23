@@ -1,0 +1,16 @@
+---
+import { getAllAuthors } from "../scripts/sanity";
+import MainLayout from "../layouts/MainLayout.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+
+const authors = await getAllAuthors();
+---
+
+<MainLayout title="Authors">
+  <section class="container" aria-label="New Blog Posts">
+    <h1 class="h1">Authors</h1>
+    <div class="post-container">
+      {authors.map((author) => <AuthorCard {author} />)}
+    </div>
+  </section>
+</MainLayout>

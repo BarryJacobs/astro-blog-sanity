@@ -1,0 +1,16 @@
+---
+import { getAllCategories } from "../scripts/sanity";
+import MainLayout from "../layouts/MainLayout.astro";
+import CategoryCard from "../components/CategoryCard.astro";
+
+const categories = await getAllCategories();
+---
+
+<MainLayout title="Categories">
+  <section class="container" aria-label="New Blog Posts">
+    <h1 class="h1">Categories</h1>
+    <div class="post-container">
+      {categories.map((category) => <CategoryCard {category} />)}
+    </div>
+  </section>
+</MainLayout>

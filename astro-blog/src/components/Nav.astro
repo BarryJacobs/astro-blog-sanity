@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { navData } from "../data/navData";
+import Link from "../components/Link.astro";
+---
+
+<nav aria-label="Primary">
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="/" class="logomark" aria-label="Go home">
+        <Image
+          src="/images/logo.png"
+          alt="PA Consulting"
+          width={60}
+          height={60}
+        />
+      </a>
+    </div>
+    <div class="navbar-right">
+      <ul>
+        {
+          navData.map((item) => (
+            <Link
+              text={item.name}
+              href={item.path}
+              style="primary"
+              isFilled={false}
+              data-navLink
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  import "../scripts/nav.ts";
+</script>

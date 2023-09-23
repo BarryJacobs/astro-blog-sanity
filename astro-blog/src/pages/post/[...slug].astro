@@ -1,0 +1,29 @@
+---
+import { getPost, getAllCategories } from "../../scripts/sanity";
+import { PortableText } from "astro-portabletext";
+import PostHeader from "../../components/PostHeader.astro";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+import RelatedPosts from "../../components/RelatedPosts.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const { slug } = Astro.params;
+
+const post = await getPost(slug!);
+const categories = await getAllCategories();
+---
+
+<MainLayout {post.title} {post.description}>
+  <PostHeader {post} />
+  <div class="post-content">
+    <div class="content">
+      <PortableText value={post.body} />
+    </div>
+    <div class="sidebar">
+      <aside class="container" aria-label="Blog categories">
+        <h2 class="h3">Blog Categories</h2>
+        <CategoryCloud {categories} />
+      </aside>
+      <RelatedPosts posts={post.relatedPosts} />
+    </div>
+  </div>
+</MainLayout>

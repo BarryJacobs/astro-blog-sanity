@@ -1,0 +1,18 @@
+---
+import { getCategoryPosts } from "../../scripts/sanity";
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const { slug } = Astro.params;
+
+const categoryPosts = await getCategoryPosts(slug!);
+---
+
+<MainLayout title={categoryPosts.name}>
+  <section class="container" aria-label={`Posts about ${categoryPosts.name}`}>
+    <h1 class="h1">Posts about <span>{categoryPosts.name}</span></h1>
+    <div class="post-container">
+      {categoryPosts.posts && categoryPosts.posts.map((post) => <PostCard {post} heading="h2" />)}
+    </div>
+  </section>
+</MainLayout>
