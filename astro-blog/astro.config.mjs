@@ -7,6 +7,11 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: `${import.meta.env.VITE_WEBSITE_URL}`,
+  vite: {
+    ssr: {
+      noExternal: ["path-to-regexp"],
+    },
+  },
   server: {
     port: 8080,
     host: true,
