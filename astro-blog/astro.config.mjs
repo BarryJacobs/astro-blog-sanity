@@ -11,6 +11,7 @@ export default defineConfig({
     ssr: {
       noExternal: [
         "path-to-regexp",
+        "@sanity/client",
         "@sanity/image-url",
         "@portabletext/toolkit",
       ],
