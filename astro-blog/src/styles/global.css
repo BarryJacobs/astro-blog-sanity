@@ -290,7 +290,7 @@ button {
     user-select: none;
   }
 
-  & (svg) {
+  & svg {
     height: var(--fs-md);
     width: var(--fs-md);
   }
