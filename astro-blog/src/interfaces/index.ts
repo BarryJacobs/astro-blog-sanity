@@ -11,6 +11,7 @@ export interface Author {
   image: SanityImageSource;
   bio: PortableTextValue | PortableTextValue[];
   email: string;
+  posts?: Post[];
 }
 
 export interface Category {
