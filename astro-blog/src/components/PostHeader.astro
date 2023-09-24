@@ -1,6 +1,6 @@
 ---
 import type { Post } from "../interfaces";
-import { formatDate } from "../scripts/utils";
+import { formatDate, slugify } from "../scripts/utils";
 import { urlForImage } from "../scripts/sanity";
 import CategoryCloud from "./CategoryCloud.astro";
 
@@ -23,6 +23,7 @@ const { post } = Astro.props as PostHeaderProps;
     </p>
   </div>
   <img
+    transition:name={slugify(post.title)}
     class="hero-image"
     alt="Post image"
     src={urlForImage(post.mainImage)

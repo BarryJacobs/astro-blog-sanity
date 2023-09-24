@@ -1,6 +1,6 @@
 ---
-import type { Post } from "../interfaces";
-import { formatDate } from "../scripts/utils";
+import type { Post } from "../interfaces"; 
+import { formatDate, slugify } from "../scripts/utils";
 import { urlForImage } from "../scripts/sanity";
 import CategoryCloud from "../components/CategoryCloud.astro";
 import Link from "./Link.astro";
@@ -22,6 +22,7 @@ const url = `/post/${post.slug.current}/`;
   </small>
   <a href={url} aria-hidden="true" tabindex="-1">
     <img
+      transition:name={slugify(post.title)}
       alt="Post image"
       src={urlForImage(post.mainImage)
         .width(400)
