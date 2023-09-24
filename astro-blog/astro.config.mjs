@@ -9,7 +9,12 @@ export default defineConfig({
   site: `${import.meta.env.VITE_WEBSITE_URL}`,
   vite: {
     ssr: {
-      noExternal: ["path-to-regexp"],
+      noExternal: [
+        "path-to-regexp",
+        "@sanity/client",
+        "@sanity/image-url",
+        "@portabletext/toolkit",
+      ],
     },
   },
   server: {
