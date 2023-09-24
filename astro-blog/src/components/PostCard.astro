@@ -22,7 +22,7 @@ const url = `/post/${post.slug.current}/`;
   </small>
   <a href={url} aria-hidden="true" tabindex="-1">
     <img
-      transition:name={slugify(post.title)}
+      transition:name={post.title}
       alt="Post image"
       src={urlForImage(post.mainImage)
         .width(400)

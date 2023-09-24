@@ -23,7 +23,7 @@ const { post } = Astro.props as PostHeaderProps;
     </p>
   </div>
   <img
-    transition:name={slugify(post.title)}
+    transition:name={post.title}
     class="hero-image"
     alt="Post image"
     src={urlForImage(post.mainImage)
