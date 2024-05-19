@@ -8,7 +8,7 @@ A demo of the site can be found [here](https://resilient-pavlova-922456.netlify.
 
 ## Bun
 
-I've used Bun as the package manager and local dev server. The offical documentation can be found [here](https://bun.sh/).
+Bun has been used as the package manager and local dev server. The offical documentation can be found [here](https://bun.sh/).
 
 ### Commands
 
