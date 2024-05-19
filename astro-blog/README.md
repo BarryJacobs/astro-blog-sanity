@@ -8,7 +8,7 @@ A demo of the site can be found [here](https://resilient-pavlova-922456.netlify.
 
 ## Bun
 
-With it's initial 1.0 release, I decided to have a look to see how it works for development and so far I've encountered no issues with Astro integration. It has many uses and I expect it's adoption to be extensive. The offical documentation can be found [here](https://bun.sh/).
+With it's initial 1.0 release, decided to have a look to see how it works for development and so far I've encountered no issues with Astro integration. It has many uses and I expect it's adoption to be extensive. The offical documentation can be found [here](https://bun.sh/).
 
 ### Commands
 
